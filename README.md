@@ -1,30 +1,13 @@
 <div align="center">
 
-<!-- Animated typing header — plays automatically on load -->
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&pause=1000&color=2E9EF7&center=true&vCenter=true&width=650&lines=Zentrust;Global+B2B+Data+Exchange+Platform;Secure.+Consent-Driven.+API-First." alt="Typing SVG" />
+<!-- Animated typing welcome — plays automatically on load -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=2E9EF7&center=true&vCenter=true&width=650&lines=Welcome+to+Zentrust;Global+B2B+Data+Exchange+Platform;Secure.+Consent-Driven.+API-First." alt="Typing SVG" />
 
+<sub>TypeScript 97.9% ⚫ CSS 1.4% ⚫ JavaScript 0.7%</sub>
 <br/>
-
-<!-- Language / tech badges -->
-<img src="https://img.shields.io/badge/TypeScript-97.9%25-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/CSS-1.4%25-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-<img src="https://img.shields.io/badge/JavaScript-0.7%25-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/Next.js-14-000000?style=flat-square&logo=next.js&logoColor=white" />
-<img src="https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js&logoColor=white" />
-<img src="https://img.shields.io/badge/PostgreSQL-Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white" />
-<img src="https://img.shields.io/badge/Auth-Auth0-EB5424?style=flat-square&logo=auth0&logoColor=white" />
-<img src="https://img.shields.io/badge/Payments-Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white" />
-<img src="https://img.shields.io/badge/Hosting-Vercel%20%7C%20Railway-black?style=flat-square&logo=vercel&logoColor=white" />
-
-<br/><br/>
-
-<img src="https://img.shields.io/github/stars/willy7890/Zentrust?style=social" />
-<img src="https://img.shields.io/github/forks/willy7890/Zentrust?style=social" />
-<img src="https://img.shields.io/badge/License-Proprietary-lightgrey?style=flat-square" />
-<img src="https://img.shields.io/badge/Team-4%20Members-blueviolet?style=flat-square" />
+<img src="https://img.shields.io/badge/TypeScript-97.9%25-3178C6?style=flat-square&logo=typescript&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/CSS-1.4%25-1572B6?style=flat-square&logo=css3&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/JavaScript-0.7%25-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />&nbsp;&nbsp;|&nbsp;&nbsp;<img src="https://img.shields.io/badge/Next.js-14-000000?style=flat-square&logo=next.js&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat-square&logo=supabase&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/Auth0-EB5424?style=flat-square&logo=auth0&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white" />&nbsp;<img src="https://img.shields.io/badge/Vercel%20%7C%20Railway-black?style=flat-square&logo=vercel&logoColor=white" />
+<br/>
+<img src="https://img.shields.io/github/stars/willy7890/Zentrust?style=flat-square" />&nbsp;<img src="https://img.shields.io/github/forks/willy7890/Zentrust?style=flat-square" />&nbsp;<img src="https://img.shields.io/badge/License-Proprietary-lightgrey?style=flat-square" />&nbsp;<img src="https://img.shields.io/badge/Team-4%20Members-blueviolet?style=flat-square" />
 
 </div>
 
@@ -74,15 +57,7 @@
 
 ## Language Breakdown
 
-<div align="center">
-
-```
-TypeScript ████████████████████████████████████████ 97.9%
-CSS        █                                         1.4%
-JavaScript ▏                                         0.7%
-```
-
-</div>
+`TypeScript 97.9%` `CSS 1.4%` `JavaScript 0.7%`
 
 This project is built almost entirely in **TypeScript**, across both the Next.js frontend and the Express backend, with a thin layer of CSS for styling and a small amount of plain JavaScript for tooling/config.
 
