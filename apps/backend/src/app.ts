@@ -1,20 +1,9 @@
-import express from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
 import authRoutes from "./routes/auth.routes";
-
-dotenv.config();
-
-const app = express();
-
-// Middlewares
-app.use(helmet());
-app.use(cors());
-app.use(morgan("dev"));
-app.use(express.json());
 
 const swaggerDocument = {
   openapi: "3.0.0",
@@ -29,9 +18,16 @@ const swaggerDocument = {
       description: "Local development",
     },
   ],
+  tags: [
+    {
+      name: "Auth",
+      description: "Authentication endpoints (Auth0)",
+    },
+  ],
   paths: {
     "/": {
       get: {
+        tags: ["Health"],
         summary: "Health Check",
         responses: {
           "200": {
@@ -42,8 +38,9 @@ const swaggerDocument = {
     },
     "/api/auth/sync": {
       post: {
+        tags: ["Auth"],
         summary: "Sync Auth0 user with database",
-        description: "Creates or updates user in our database. Requires JWT.",
+        description: "Creates or updates user in our database. Requires JWT + role in body.",
         security: [{ bearerAuth: [] }],
         requestBody: {
           required: true,
@@ -51,6 +48,7 @@ const swaggerDocument = {
             "application/json": {
               schema: {
                 type: "object",
+                required: ["role"],
                 properties: {
                   role: {
                     type: "string",
@@ -64,16 +62,18 @@ const swaggerDocument = {
         },
         responses: {
           "200": { description: "User synced successfully" },
+          "400": { description: "Invalid role" },
           "401": { description: "Unauthorized" },
         },
       },
     },
     "/api/auth/me": {
       get: {
+        tags: ["Auth"],
         summary: "Get current authenticated user",
         security: [{ bearerAuth: [] }],
         responses: {
-          "200": { description: "User data" },
+          "200": { description: "Returns user data + role" },
           "401": { description: "Unauthorized" },
           "403": { description: "Forbidden" },
         },
@@ -81,10 +81,11 @@ const swaggerDocument = {
     },
     "/api/auth/role": {
       get: {
+        tags: ["Auth"],
         summary: "Get current user role",
         security: [{ bearerAuth: [] }],
         responses: {
-          "200": { description: "User role" },
+          "200": { description: "Returns the user role" },
           "401": { description: "Unauthorized" },
         },
       },
@@ -101,18 +102,38 @@ const swaggerDocument = {
   },
 };
 
-// Swagger UI
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const app: Express = express();
 
-// Health check
-app.get("/", (req, res) => {
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan("dev"));
+
+app.get("/", (req: Request, res: Response) => {
   res.json({
-    status: "Ok",
+    success: true,
     message: "Zentrust API is running",
+    timestamp: new Date().toISOString(),
   });
 });
 
-// Auth routes
 app.use("/api/auth", authRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use((req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    message: "Route not found",
+  });
+});
+
+app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
+  console.error("Unhandled error:", err);
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || "Internal server error",
+  });
+});
 
 export default app;
